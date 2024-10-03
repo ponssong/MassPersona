@@ -42,10 +42,10 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
                 return Page();
             }
 
-           /* var newReview = new Review
+            var newReview = new Review
             {
-                DateReviewed = new DateTime(Review.DateReviewed.ToFileTimeUtc())
-            };*/
+                DateReviewed = new DateTime(Review.DateReviewed.ToFileTime())
+            };
 
             _context.Reviews.Add(Review);
             await _context.SaveChangesAsync();

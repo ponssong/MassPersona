@@ -16,19 +16,46 @@ namespace MassPersona.RazorPageApp.Models
                 new Review
                 {
                     ReviewID = 1,
-                    Title = "Test Title",
-                    Category = "Test Category",
-                    ReviewText = "Test Review",
-                    Rating = 5,
+                    Title = "Dune 2",
+                    Category = "Movie",
+                    ReviewText = "I enjoyed it more than the first one.",
+                    Rating = 4,
                     DateReviewed = DateTime.UtcNow,
                 },
                  new Review
                  {
                      ReviewID = 2,
-                     Title = "A New Test Title",
-                     Category = "A New Test Category",
-                     ReviewText = "A New Test Review",
+                     Title = "Warcraft Classic",
+                     Category = "Game",
+                     ReviewText = "Brough back nostalgia as I played it when it first came out.",
+                     Rating = 4,
+                     DateReviewed = DateTime.UtcNow,
+                 },
+                 new Review
+                 {
+                     ReviewID = 3,
+                     Title = ".NET Microservices: Architecture for containerized .NET Applications",
+                     Category = "Book",
+                     ReviewText = "A little difficult to understand, but peaked my interest to create Microservice solutions. For example https://github.com/ponssong/EShopMicSer",
                      Rating = 2,
+                     DateReviewed = DateTime.UtcNow,
+                 },
+                 new Review
+                 {
+                     ReviewID = 4,
+                     Title = "Rings of Power",
+                     Category = "Show",
+                     ReviewText = "I enjoyed the first season so i will continue to watch.",
+                     Rating = 3,
+                     DateReviewed = DateTime.UtcNow,
+                 },
+                 new Review
+                 {
+                     ReviewID = 5,
+                     Title = "Solo Leveling",
+                     Category = "Show",
+                     ReviewText = "I read the manhua. So I wanted to see the anime.",
+                     Rating = 5,
                      DateReviewed = DateTime.UtcNow,
                  }
             );
