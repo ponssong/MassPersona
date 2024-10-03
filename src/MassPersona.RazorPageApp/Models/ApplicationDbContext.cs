@@ -5,7 +5,9 @@ namespace MassPersona.RazorPageApp.Models
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-           : base(options) { }
+           : base(options) { 
+        
+        }
         public DbSet<Review> Reviews => Set<Review>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -18,7 +20,7 @@ namespace MassPersona.RazorPageApp.Models
                     Category = "Test Category",
                     ReviewText = "Test Review",
                     Rating = 1,
-                    DateReviewed = DateTime.Now,
+                    DateReviewed = DateTime.UtcNow,
                 }
             );
         }

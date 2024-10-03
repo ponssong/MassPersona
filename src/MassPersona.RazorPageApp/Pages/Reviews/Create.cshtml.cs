@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MassPersona.RazorPageApp.Models;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace MassPersona.RazorPageApp.Pages.Reviews
 {
@@ -18,13 +19,14 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
         {
             _context = context;
         }
+        public string Message { get; set; }
 
         public IActionResult OnGet()
         {
             return Page();
         }
 
-        [BindProperty]
+        [BindProperty, DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public Review Review { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
@@ -32,8 +34,18 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
         {
             if (!ModelState.IsValid)
             {
+                if (Review.Category == CategoriesSelectList.Select.ToString())
+                {
+                    Message = "Please select a <span class=\"text-danger fw-bold\">category</span>";
+                    return Page();
+                }
                 return Page();
             }
+
+           /* var newReview = new Review
+            {
+                DateReviewed = new DateTime(Review.DateReviewed.ToFileTimeUtc())
+            };*/
 
             _context.Reviews.Add(Review);
             await _context.SaveChangesAsync();
