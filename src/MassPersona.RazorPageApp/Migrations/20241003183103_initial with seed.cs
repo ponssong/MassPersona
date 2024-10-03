@@ -4,10 +4,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace MassPersona.RazorPageApp.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class initialwithseed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,6 +29,15 @@ namespace MassPersona.RazorPageApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reviews", x => x.ReviewID);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Reviews",
+                columns: new[] { "ReviewID", "Category", "DateReviewed", "Rating", "ReviewText", "Title" },
+                values: new object[,]
+                {
+                    { 1, "Test Category", new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5969), 5, "Test Review", "Test Title" },
+                    { 2, "A New Test Category", new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5972), 2, "A New Test Review", "A New Test Title" }
                 });
         }
 

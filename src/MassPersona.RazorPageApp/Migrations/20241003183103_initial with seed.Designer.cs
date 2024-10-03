@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MassPersona.RazorPageApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241002230601_initial")]
-    partial class initial
+    [Migration("20241003183103_initial with seed")]
+    partial class initialwithseed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,6 +60,26 @@ namespace MassPersona.RazorPageApp.Migrations
                     b.HasKey("ReviewID");
 
                     b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            ReviewID = 1,
+                            Category = "Test Category",
+                            DateReviewed = new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5969),
+                            Rating = 5,
+                            ReviewText = "Test Review",
+                            Title = "Test Title"
+                        },
+                        new
+                        {
+                            ReviewID = 2,
+                            Category = "A New Test Category",
+                            DateReviewed = new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5972),
+                            Rating = 2,
+                            ReviewText = "A New Test Review",
+                            Title = "A New Test Title"
+                        });
                 });
 #pragma warning restore 612, 618
         }

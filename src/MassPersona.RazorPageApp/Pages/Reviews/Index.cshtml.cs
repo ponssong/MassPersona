@@ -26,14 +26,24 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
 
         public IList<Review> Review { get;set; } = default!;
 
-        public async Task OnGetAsync( string sortOrder)
+        public async Task OnGetAsync( string sortOrder, string searchString)
         {
             // using System;
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             RatingSort = sortOrder == "Rating" ? "rating_desc" : "Rating";
 
+            CurrentFilter = searchString;
+
             IQueryable<Review> reviews = from s in _context.Reviews
                                              select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                reviews = reviews.Where(s => s.Title.ToUpper().Contains(searchString.ToUpper())
+                                       || s.ReviewText.ToUpper().Contains(searchString.ToUpper())
+                                       || s.Category.ToUpper().Contains(searchString.ToUpper()));
+            }
+
 
             switch (sortOrder)
             {
@@ -52,7 +62,7 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
             }
 
 
-            Review = await _context.Reviews.ToListAsync();
+            Review = await reviews.AsNoTracking().ToListAsync();
         }
     }
 }

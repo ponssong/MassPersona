@@ -19,9 +19,18 @@ namespace MassPersona.RazorPageApp.Models
                     Title = "Test Title",
                     Category = "Test Category",
                     ReviewText = "Test Review",
-                    Rating = 1,
+                    Rating = 5,
                     DateReviewed = DateTime.UtcNow,
-                }
+                },
+                 new Review
+                 {
+                     ReviewID = 2,
+                     Title = "A New Test Title",
+                     Category = "A New Test Category",
+                     ReviewText = "A New Test Review",
+                     Rating = 2,
+                     DateReviewed = DateTime.UtcNow,
+                 }
             );
         }
     }

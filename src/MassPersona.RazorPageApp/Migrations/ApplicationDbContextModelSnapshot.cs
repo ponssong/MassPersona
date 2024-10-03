@@ -63,10 +63,19 @@ namespace MassPersona.RazorPageApp.Migrations
                         {
                             ReviewID = 1,
                             Category = "Test Category",
-                            DateReviewed = new DateTime(2024, 10, 2, 18, 39, 31, 441, DateTimeKind.Local).AddTicks(8240),
-                            Rating = 1,
+                            DateReviewed = new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5969),
+                            Rating = 5,
                             ReviewText = "Test Review",
                             Title = "Test Title"
+                        },
+                        new
+                        {
+                            ReviewID = 2,
+                            Category = "A New Test Category",
+                            DateReviewed = new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5972),
+                            Rating = 2,
+                            ReviewText = "A New Test Review",
+                            Title = "A New Test Title"
                         });
                 });
 #pragma warning restore 612, 618
