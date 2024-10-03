@@ -14,7 +14,8 @@ Update the connection string in appsettings.json to match your PostgreSQL setup.
 Apply database migrations in Package Manager Console:
 
 add-migration
-update-datbase
+
+update-database
 
 
 Run the application:
