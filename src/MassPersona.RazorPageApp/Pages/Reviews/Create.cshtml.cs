@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MassPersona.RazorPageApp.Models;
+using System.ComponentModel;
 
 namespace MassPersona.RazorPageApp.Pages.Reviews
 {
@@ -38,6 +39,20 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+        }
+
+        public enum CategoriesSelectList
+        {
+            [Description("Media")]
+            Select = 0,
+            [Description("Movies")]
+            Movies = 1,
+            [Description("Books")]
+            Books = 2,
+            [Description("Shows")]
+            Shows = 3,
+            [Description("Game")]
+            Game= 4
         }
     }
 }
