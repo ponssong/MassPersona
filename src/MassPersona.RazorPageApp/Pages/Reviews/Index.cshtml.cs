@@ -13,10 +13,12 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
     public class IndexModel : PageModel
     {
         private readonly MassPersona.RazorPageApp.Models.ApplicationDbContext _context;
+        private readonly IConfiguration Configuration;
 
-        public IndexModel(MassPersona.RazorPageApp.Models.ApplicationDbContext context)
+        public IndexModel(MassPersona.RazorPageApp.Models.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
         public string TitleSort { get; set; }
@@ -24,13 +26,23 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public IList<Review> Review { get;set; } = default!;
+        public PaginatedList<Review> Reviews { get; set; } = default!;
 
-        public async Task OnGetAsync( string sortOrder, string searchString)
+        public async Task OnGetAsync( string sortOrder, string searchString, string currentFilter, int? pageIndex)
         {
             // using System;
+            CurrentSort = sortOrder;
             TitleSort = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             RatingSort = sortOrder == "Rating" ? "rating_desc" : "Rating";
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
 
             CurrentFilter = searchString;
 
@@ -61,8 +73,10 @@ namespace MassPersona.RazorPageApp.Pages.Reviews
                     break;
             }
 
+            var pageSize = Configuration.GetValue("PageSize", 4);
 
-            Review = await reviews.AsNoTracking().ToListAsync();
+            Reviews = await PaginatedList<Review>.CreateAsync(
+                reviews.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
 }

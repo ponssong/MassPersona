@@ -27,29 +27,33 @@
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
-                    @Html.DisplayNameFor(model => model.Review[0].Title)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">                    
+                    @Html.DisplayNameFor(model => model.Reviews[0].Title)
                 </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].Category)
+                
+                @Html.DisplayNameFor(model => model.Reviews[0].Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewText)
+                
+                @Html.DisplayNameFor(model => model.Reviews[0].ReviewText)
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.RatingSort">
-                    @Html.DisplayNameFor(model => model.Review[0].Rating)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.RatingSort"
+                   asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Reviews[0].Rating)
                 </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].DateReviewed)
+                @Html.DisplayNameFor(model => model.Reviews[0].DateReviewed)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Review) {
+@foreach (var item in Model.Reviews) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -75,3 +79,23 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Reviews.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Reviews.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Reviews.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Reviews.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
