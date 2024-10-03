@@ -4,8 +4,8 @@ MassPersona Full Stack  Developer Coding Assessment
 Installation
 Clone the repository:
 
-git clone https://github.com/ponssong/MassPersona.git
-cd variate-web
+git clone
+https://github.com/ponssong/MassPersona.git
 
 Configure the database:
 
