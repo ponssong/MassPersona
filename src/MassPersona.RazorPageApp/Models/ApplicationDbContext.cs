@@ -5,8 +5,8 @@ namespace MassPersona.RazorPageApp.Models
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-           : base(options) { 
-        
+           : base(options) {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
         public DbSet<Review> Reviews => Set<Review>();
 

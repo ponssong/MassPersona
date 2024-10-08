@@ -19,7 +19,7 @@ namespace MassPersona.RazorPageApp.Models
         [Column("Rating")]
         public int Rating { get; set; }
         [Column("DateReviewed")]
-        public DateTime DateReviewed { get; set; }
+        public DateTime DateReviewed { get; set; } = DateTime.Now.ToUniversalTime();
         
     }
 }

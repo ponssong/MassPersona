@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MassPersona.RazorPageApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241003204011_second_seed")]
-    partial class second_seed
+    [Migration("20241008145217_seed migration")]
+    partial class seedmigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,7 +66,7 @@ namespace MassPersona.RazorPageApp.Migrations
                         {
                             ReviewID = 1,
                             Category = "Movie",
-                            DateReviewed = new DateTime(2024, 10, 3, 20, 40, 10, 920, DateTimeKind.Utc).AddTicks(3404),
+                            DateReviewed = new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4387),
                             Rating = 4,
                             ReviewText = "I enjoyed it more than the first one.",
                             Title = "Dune 2"
@@ -75,7 +75,7 @@ namespace MassPersona.RazorPageApp.Migrations
                         {
                             ReviewID = 2,
                             Category = "Game",
-                            DateReviewed = new DateTime(2024, 10, 3, 20, 40, 10, 920, DateTimeKind.Utc).AddTicks(3408),
+                            DateReviewed = new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4393),
                             Rating = 4,
                             ReviewText = "Brough back nostalgia as I played it when it first came out.",
                             Title = "Warcraft Classic"
@@ -84,26 +84,26 @@ namespace MassPersona.RazorPageApp.Migrations
                         {
                             ReviewID = 3,
                             Category = "Book",
-                            DateReviewed = new DateTime(2024, 10, 3, 20, 40, 10, 920, DateTimeKind.Utc).AddTicks(3409),
+                            DateReviewed = new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4397),
                             Rating = 2,
-                            ReviewText = "A little difficult to understand, but paked my interest to create Microservice solutions. For example https://github.com/ponssong/EShopMicSer",
+                            ReviewText = "A little difficult to understand, but peaked my interest to create Microservice solutions. For example https://github.com/ponssong/EShopMicSer",
                             Title = ".NET Microservices: Architecture for containerized .NET Applications"
                         },
                         new
                         {
                             ReviewID = 4,
                             Category = "Show",
-                            DateReviewed = new DateTime(2024, 10, 3, 20, 40, 10, 920, DateTimeKind.Utc).AddTicks(3411),
+                            DateReviewed = new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4401),
                             Rating = 3,
-                            ReviewText = "I enjoyed the first so i will continue to watch.",
+                            ReviewText = "I enjoyed the first season so i will continue to watch.",
                             Title = "Rings of Power"
                         },
                         new
                         {
                             ReviewID = 5,
                             Category = "Show",
-                            DateReviewed = new DateTime(2024, 10, 3, 20, 40, 10, 920, DateTimeKind.Utc).AddTicks(3413),
-                            Rating = 4,
+                            DateReviewed = new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4406),
+                            Rating = 5,
                             ReviewText = "I read the manhua. So I wanted to see the anime.",
                             Title = "Solo Leveling"
                         });

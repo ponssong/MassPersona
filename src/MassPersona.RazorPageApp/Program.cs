@@ -11,8 +11,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("Database"),
        o => o.UseNodaTime());
+    
 
 });
+
 
 var app = builder.Build();
 

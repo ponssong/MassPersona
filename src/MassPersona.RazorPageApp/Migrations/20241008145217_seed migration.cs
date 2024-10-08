@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MassPersona.RazorPageApp.Migrations
 {
     /// <inheritdoc />
-    public partial class initialwithseed : Migration
+    public partial class seedmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,8 +36,11 @@ namespace MassPersona.RazorPageApp.Migrations
                 columns: new[] { "ReviewID", "Category", "DateReviewed", "Rating", "ReviewText", "Title" },
                 values: new object[,]
                 {
-                    { 1, "Test Category", new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5969), 5, "Test Review", "Test Title" },
-                    { 2, "A New Test Category", new DateTime(2024, 10, 3, 18, 31, 2, 156, DateTimeKind.Utc).AddTicks(5972), 2, "A New Test Review", "A New Test Title" }
+                    { 1, "Movie", new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4387), 4, "I enjoyed it more than the first one.", "Dune 2" },
+                    { 2, "Game", new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4393), 4, "Brough back nostalgia as I played it when it first came out.", "Warcraft Classic" },
+                    { 3, "Book", new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4397), 2, "A little difficult to understand, but peaked my interest to create Microservice solutions. For example https://github.com/ponssong/EShopMicSer", ".NET Microservices: Architecture for containerized .NET Applications" },
+                    { 4, "Show", new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4401), 3, "I enjoyed the first season so i will continue to watch.", "Rings of Power" },
+                    { 5, "Show", new DateTime(2024, 10, 8, 14, 52, 16, 628, DateTimeKind.Utc).AddTicks(4406), 5, "I read the manhua. So I wanted to see the anime.", "Solo Leveling" }
                 });
         }
 
